@@ -1,0 +1,23 @@
+set incsearch
+set ignorecase
+set smartcase
+set clipboard+=unnamed
+set so=8
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+set magic
+set showmatch
+set showcmd
+
+nnoremap L $
+nnoremap H ^
+map j gj
+map k gk
+
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
+nmap <leader>q :wq<cr>
+nmap <leader>z :q!<cr>
+
+

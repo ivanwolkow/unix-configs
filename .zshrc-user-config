@@ -1,0 +1,54 @@
+# Install zsh and zplug - plugin manager
+# Source this file from .zshrc somewhere below User configuration section
+
+# zplug - manage plugins
+source /usr/share/zplug/init.zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/screen", from:oh-my-zsh
+zplug "plugins/z", from:oh-my-zsh
+zplug "plugins/extract", from:oh-my-zsh
+zplug "plugins/sudo", from:oh-my-zsh
+zplug "plugins/command-not-found", from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-completions"
+zplug "junegunn/fzf"
+zplug "themes/robbyrussell", from:oh-my-zsh, as:theme   # Theme
+zplug "zsh-users/zsh-syntax-highlighting"
+
+# zplug - install/load new plugins when zsh is started or reloaded
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+zplug load
+
+source <(kubectl completion zsh)
+
+autoload -U add-zsh-hook
+ls_after_cd() {
+	l
+}
+add-zsh-hook chpwd ls_after_cd
+
+alias s='cd /opt/local/ivolkov/IdeaProjects'
+alias q="exit"
+alias ~~="cd /opt/local/ivolkov"
+alias linux='docker run --rm -v $PWD:/usr/src -w /usr/src nitram509/debian-oraclejdk8-maven-cmake-gcc-gnueabihf'
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
+function grepb() {
+    IFS= read -r header
+    echo "$header"
+    grep "$@"
+}
+
+if [[ -z $(update-alternatives --query editor | grep 'Value:' | grep vim) ]]; then
+  echo "Setting vim as default editor."
+  sudo update-alternatives --set editor $(which vim.basic)
+fi
+

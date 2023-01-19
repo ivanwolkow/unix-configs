@@ -1,0 +1,71 @@
+source ~/.vimrc-user-config
+
+set ideajoin
+set easymotion
+set highlightedyank
+
+map <Leader> <Plug>(easymotion-prefix)
+
+nmap <C-o> :action Back<CR>
+nmap <C-i> :action Forward<CR>
+nnoremap ,e :action SearchEverywhere<CR> 
+nnoremap ,g :action FindInPath<CR> 
+nnoremap ,s :action FileStructurePopup<CR> 
+nnoremap ,c :action GotoClass<CR> 
+nnoremap ,r :action RecentFiles<CR> 
+nnoremap ,l :action RecentLocations<CR> 
+nnoremap ,p :action RecentProjectListGroup<CR> 
+ 
+nnoremap gd :action GotoDeclaration<CR> 
+nnoremap gs :action GotoSuperMethod<CR> 
+nnoremap gi :action GotoImplementation<CR> 
+nnoremap gb :action JumpToLastChange<CR> 
+nnoremap gh :action QuickJavaDoc<CR> 
+nnoremap ge :action ShowErrorDescription<CR> 
+ 
+nnoremap U :action FindUsages<CR> 
+nnoremap R :action RenameElement<CR> 
+ 
+nnoremap == :action ReformatCode<CR> 
+vnoremap == :action ReformatCode<CR> 
+ 
+nnoremap cc :action CommentByLineComment<CR> 
+vnoremap cc :action CommentByLineComment<CR> 
+ 
+#nnoremap <C-CR> :action ShowIntentionActions<CR> 
+ 
+nnoremap ,a :action GotoAction<CR> 
+vnoremap ,a :action GotoAction<CR> 
+
+nnoremap <Leader>a :action Vcs.ToggleAmendCommitMode<CR>
+vnoremap <Leader>a :action Vcs.ToggleAmendCommitMode<CR>
+
+#intellij idea
+sethandler <C-A> a:ide
+sethandler <C-B> a:vim
+sethandler <C-D> a:vim
+sethandler <C-H> a:vim
+sethandler <C-I> a:vim
+sethandler <C-K> a:ide
+sethandler <C-M> a:vim
+sethandler <C-N> a:ide
+sethandler <C-O> a:vim
+sethandler <C-P> a:ide
+sethandler <C-R> a:vim
+sethandler <C-U> a:vim
+sethandler <C-V> a:vim
+sethandler <C-W> a:ide
+sethandler <C-X> a:vim
+sethandler <C-[> a:vim
+sethandler <C-]> a:vim
+sethandler <C-CR> a:ide
+sethandler <C-C> a:vim
+sethandler <C-E> a:vim
+sethandler <C-F> a:vim
+sethandler <C-J> a:vim
+sethandler <C-S> a:vim
+sethandler <C-T> a:ide
+sethandler <C-Y> a:vim
+sethandler <C-L> a:vim
+sethandler <C-Q> a:vim
+
